@@ -22,9 +22,16 @@ CREATE TABLE
         name VARCHAR(64),
         product_id INT REFERENCES products(id),
         amount INT,
-        total INT,
+        total INT
+    );
+
+    CREATE TABLE
+    pay(
+        id SERIAL PRIMARY KEY,
+        charge INT,
         pay INT,
-        change INT
+        change INT,
+        transaction_id INT REFERENCES transactions(id)
     );
 
 INSERT INTO category(name,photo)VALUES('${name}','${photo}');

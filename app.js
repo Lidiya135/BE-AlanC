@@ -17,10 +17,6 @@ const corsOptions = {
   optionSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
-app.use(express.json()); app.use(express.urlencoded({
-  extended: true,
-  })
- );
 app.use(bodyParser.json());
 app.use(
   helmet({
@@ -28,10 +24,8 @@ app.use(
     crossOriginResourcePolicy: false,
   })
 );
-app.use(helmet());
 app.use(morgan("dev"));
 app.use('/', mainRouter);
-app.use(bodyParser.json());
 
 app.all('*', (req, res, next) => {
   response(res, 404, false, null, '404 Not Found');

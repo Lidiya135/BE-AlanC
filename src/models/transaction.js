@@ -15,18 +15,18 @@ const selectTransacById = (id) =>
 
 // Insert transactions
 const insertTransac = (datatransactions) => {
-  const { name, product_id, amount, total, pay, change } = datatransactions;
+  const { name, product_id, amount, total } = datatransactions;
 
   return Pool.query(
-    `INSERT INTO transactions(name,product_id, amount, total, pay, change)VALUES('${name}',${product_id},${amount}, ${total},${pay},${change})`
+    `INSERT INTO transactions(name,product_id, amount, total)VALUES('${name}',${product_id},${amount}, ${total})`
   );
 };
 
 //update transactions
 const updateTransac = (id, datatransactions) => {
-  const { name, product_id, amount, total, pay, change} = datatransactions;
+  const { name, product_id, amount, total} = datatransactions;
   return Pool.query(
-    `UPDATE transactions SET name='${name}',product_id=${product_id},amount=${amount},total=${total},pay=${pay},change=${change} WHERE id='${id}'`
+    `UPDATE transactions SET name='${name}',product_id=${product_id},amount=${amount},total=${total} WHERE id='${id}'`
   );
 };
 
